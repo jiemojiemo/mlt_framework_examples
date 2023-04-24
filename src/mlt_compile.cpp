@@ -29,11 +29,6 @@ void compile(const char *in_path, const char *out_path) {
   Producer producer(profile, nullptr, in_path);
   Consumer consumer(profile, "avformat", out_path);
 
-  consumer.set("rescale", "nearest");
-
-  consumer.set("terminate_on_pause", 1);
-  consumer.set("frequency", 44100);
-
   consumer.connect(producer);
 
   consumer.run();
