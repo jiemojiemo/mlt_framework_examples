@@ -1,3 +1,16 @@
+# MLT Framework API Examples
+
+Introduction:
+Welcome to this repository showcasing a collection of examples using the MLT Framework API. The MLT Framework is a powerful multimedia processing engine that enables developers to create rich and diverse multimedia applications. This repository aims to provide a comprehensive understanding of the framework's capabilities through practical and easy-to-understand examples.
+
+The examples in this repository demonstrate a wide range of functionalities, including:
+
++ mlt_all: A program that plays multiple video files simultaneously, showcasing MLT's ability to manage and process multiple video streams.
++ mlt_effect_in_middle: This example demonstrates how to apply various video effects to a clip, such as transitions, color correction, and compositing, to create visually appealing video content.
++ mlt_bouncy: An example that implements a Picture-in-Picture (PiP) effect, allowing you to display one video inside another, creating a dynamic viewing experience.
+
+These examples serve as an excellent starting point for developers looking to integrate the MLT Framework into their multimedia projects. We hope that you find these examples helpful in understanding the MLT Framework and that they inspire you to create your own exciting multimedia applications. Happy coding!
+
 # Build
 ```bash
 git clone https://github.com/jiemojiemo/mlt_framework_examples.git
