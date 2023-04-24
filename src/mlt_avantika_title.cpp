@@ -42,8 +42,19 @@ void play(const string &pango_file_path) {
 }
 
 int main(int argc, char **argv) {
-  Factory::init(
-      "/Users/user/Documents/develop/mlt/cmake-build-asan/out/lib/mlt");
+  char *mlt_repository = getenv("MLT_REPOSITORY");
+  if (mlt_repository == nullptr) {
+    std::cout << "MLT_REPOSITORY is not set" << std::endl;
+    exit(1);
+  }
+
+  char *mlt_data = getenv("MLT_DATA");
+  if (mlt_data == nullptr) {
+    std::cout << "MLT_DATA is not set" << std::endl;
+    exit(1);
+  }
+
+  Factory::init(mlt_repository);
 
   try {
     cxxopts::Options options("mlt_avantika_title", "MLT avantika title");
