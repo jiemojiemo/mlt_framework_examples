@@ -1,0 +1,3 @@
+[submodule "mlt"]
+	path = mlt
+	url = https://github.com/mltframework/mlt.git
