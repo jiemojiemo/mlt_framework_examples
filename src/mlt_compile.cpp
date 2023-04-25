@@ -26,7 +26,7 @@ void compile(const char *in_path, const char *out_path) {
   profile.set_display_aspect(16, 9);
   profile.set_colorspace(709);
 
-  Producer producer(profile, nullptr, in_path);
+  Producer producer(profile, "loader", in_path);
   Consumer consumer(profile, "avformat", out_path);
 
   consumer.connect(producer);
@@ -79,7 +79,6 @@ int main(int argc, char **argv) {
     exit(1);
   }
 
-  compile(argv[1], argv[2]);
   Factory::close();
   return 0;
 }

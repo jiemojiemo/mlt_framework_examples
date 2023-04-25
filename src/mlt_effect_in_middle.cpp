@@ -18,46 +18,6 @@ extern "C" {
 
 using namespace Mlt;
 
-void play(int argc, char *argv[]) {
-  Profile profile; // defaults to dv_pal
-  profile.set_frame_rate(30, 1);
-  profile.set_width(640);
-  profile.set_height(360);
-  profile.set_progressive(1);
-  profile.set_sample_aspect(1, 1);
-  profile.set_display_aspect(16, 9);
-  profile.set_colorspace(709);
-
-  Playlist playlist;
-  for (int i = 1; i < argc; i++) {
-    Producer producer(profile, NULL, argv[i]);
-    playlist.append(producer);
-  }
-
-  // Create a consumer and connect it to the playlist
-  Consumer consumer(profile, nullptr, nullptr);
-
-  // Start playing
-  consumer.set("real_time", 1);
-  consumer.set("terminate_on_pause", 1);
-
-  consumer.connect(playlist);
-  consumer.start();
-
-  while (!consumer.is_stopped()) {
-    SDL_Event event;
-    while (SDL_PollEvent(&event)) {
-      switch (event.type) {
-      case SDL_QUIT:
-        consumer.stop();
-        break;
-      }
-    }
-  }
-
-  consumer.stop();
-}
-
 void play(const std::string& input_file) {
   Profile profile; // defaults to dv_pal
   profile.set_frame_rate(30, 1);
